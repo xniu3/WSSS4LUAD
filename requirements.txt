@@ -7,7 +7,7 @@ patchify
 pillow
 pypng
 pyyaml
-pytorch
+torch
 scikit-image
 scikit-learn
 scipy
