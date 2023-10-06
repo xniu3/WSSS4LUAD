@@ -4,18 +4,18 @@ echo choose dataset $1
 # GlaS dataset
 if [ $1 == glas ]
 then
-    python ./WSSS4LUAD/prepare_cls_inputs.py -d glas
-    CUDA_VISIBLE_DEVICES=0 python ./WSSS4LUAD/main.py -d 0 -m glas_11256 -resnet -dataset glas -test_every 4 -epoch 20
-    CUDA_VISIBLE_DEVICES=0 python ./WSSS4LUAD/prepare_seg_inputs.py -d 0 -dataset glas -ckpt resnet_glas_11256_best 
+    python prepare_cls_inputs.py -d glas
+    CUDA_VISIBLE_DEVICES=0 python main.py -d 0 -m glas_11256 -resnet -dataset glas -test_every 4 -epoch 20
+    CUDA_VISIBLE_DEVICES=0 python prepare_seg_inputs.py -d 0 -dataset glas -ckpt resnet_glas_11256_best 
 
 # WSSS4LUAD dataset
 elif [ $1 == luad ]
 then
-    python ./WSSS4LUAD/prepare_cls_inputs.py -d luad
-    CUDA_VISIBLE_DEVICES=3 python ./WSSS4LUAD/main.py -d 0 -m luad_224_75 -resnet -dataset luad -test_every 5 -epoch 35
-    CUDA_VISIBLE_DEVICES=3 python ./WSSS4LUAD/prepare_seg_inputs.py -d 0 -dataset luad -ckpt resnet_luad_224_75_best 
+    python prepare_cls_inputs.py -d luad
+    CUDA_VISIBLE_DEVICES=3 python main.py -d 0 -m luad_224_75 -resnet -dataset luad -test_every 5 -epoch 35
+    CUDA_VISIBLE_DEVICES=3 python prepare_seg_inputs.py -d 0 -dataset luad -ckpt resnet_luad_224_75_best 
 
 # CRAG dataset
 else
-    CUDA_VISIBLE_DEVICES=2 python ./WSSS4LUAD/main.py -d 0 -m glas_112112 -resnet -dataset crag -test_every 4 -epoch 40
+    CUDA_VISIBLE_DEVICES=2 python main.py -d 0 -m glas_112112 -resnet -dataset crag -test_every 4 -epoch 40
 fi
