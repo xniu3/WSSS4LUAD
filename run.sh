@@ -17,5 +17,5 @@ then
 
 # CRAG dataset
 else
-    CUDA_VISIBLE_DEVICES=2 python ./WSSS4LUAD/main.py -d 0 -m glas_112112 -resnet -dataset warwick -test_every 4 -epoch 40
+    CUDA_VISIBLE_DEVICES=2 python ./WSSS4LUAD/main.py -d 0 -m glas_112112 -resnet -dataset crag -test_every 4 -epoch 40
 fi
